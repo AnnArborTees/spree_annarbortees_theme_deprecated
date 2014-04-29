@@ -8,17 +8,25 @@
 
           <div id="product-images" data-hook="product_images">
 
-            <div id="cbp-fwslider" class="cbp-fwslider">
-              <ul>
-                <li><a href="#"><img src="http://tympanus.net/Blueprints/FullWidthImageSlider/images/1.jpg" alt="img01"/></a></li>
-                <li><a href="#"><img src="http://tympanus.net/Blueprints/FullWidthImageSlider/images/2.jpg" alt="img02"/></a></li>
-                <li><a href="#"><img src="http://tympanus.net/Blueprints/FullWidthImageSlider/images/3.jpg" alt="img03"/></a></li>
-              </ul>
+            <div id='slider' class='swipe'>
+              <% if @product.images.empty? %>
+                  <div class='swipe-wrap'>
+                        <div>
+                          <%= product_image(@product, :itemprop => "image") %>
+                        </div>
+                  </div>
+              <% else %>
+              <div class='swipe-wrap'>
+                <% @product.images.each do |image| %>
+                <div>
+                  <%= image_tag image.attachment.url(:product), :itemprop => "image" %>
+                </div>
+                <% end %>
+              </div>
+              <% end %>
             </div>
-
-            <div id="main-image" data-hook>
-              <%= render :partial => 'image' %>
-            </div>
+            <span class="nav prev">Prev</span>
+            <span class="nav next">Next</span>
           </div>
 
         </div>
@@ -38,8 +46,6 @@
         <div itemprop="description" data-hook="description">
           <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
         </div>
-
-        <%= render :partial => 'taxons' %>
 
       </div>
 
