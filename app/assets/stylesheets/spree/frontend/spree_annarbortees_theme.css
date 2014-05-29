@@ -2,12 +2,9 @@
 Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
 
- *= require base
- *= require layout
+ *= require spree/frontend/reset
  *= require skeleton
  *= require spree/frontend/screen
-
-
-
+ *= require font-awesome/font-awesome
 
 */

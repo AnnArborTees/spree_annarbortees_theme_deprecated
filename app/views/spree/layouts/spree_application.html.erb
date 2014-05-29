@@ -8,26 +8,37 @@
   <%= render :partial => 'spree/shared/head' %>
 </head>
 <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
-<div class="container">
-  <header id="header" class="row">
-    <section id="logo" class="eight columns alpha">
-      logo
-    </section>
-    <section id="search" class="seven columns">
-      Search Bar
-    </section>
-    <section id="cart" class="one columns omega">
-      Cart
-    </section>
-  </header>
-  <nav id="breadcrumbs" class="row">
-    <section id="breadcrumbs" class="fifteen columns alpha">
-      Breadcrumb Here
-    </section>
-    <section id="breadcrumbs" class="one columns omega">
-        Help
-    </section>
-  </nav>
+<div id="header_container">
+  <div class="skeleton">
+      <header id="header">
+        <section id="logo" class="eight columns alpha">
+          <%= link_to image_tag("logo.png"), spree.root_path %>
+        </section>
+        <section id="search" class="seven columns">
+          <%= render partial: 'spree/shared/search' %>
+        </section>
+        <section id="cart" class="one columns omega">
+          <%= link_to '/cart'  do %>
+              <span id="shopping-cart-image"><i class="fa fa-shopping-cart"></i></span>
+              <span id="shopping-cart-text">Shopping Cart</span>
+          <% end %>
+        </section>
+      </header>
+  </div>
+  <div id="header_nav">
+    <div class="skeleton">
+          <nav id="breadcrumbs" class="row">
+            <section id="breadcrumbs" class="fifteen columns alpha">
+              Breadcrumb Here
+            </section>
+            <section id="breadcrumbs" class="one columns omega">
+                Help
+            </section>
+        </nav>
+     </div>
+  </div>
+  </div>
+</div>
   <div id="content">
     <%= flash_messages %>
     <%= yield %>

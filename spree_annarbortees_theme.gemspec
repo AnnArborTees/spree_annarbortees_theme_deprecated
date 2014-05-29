@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 2.2.0'
+  s.add_dependency 'spree_frontend', '~> 2.2.0'
+  s.add_dependency 'spree_backend', '~> 2.2.0'
   s.add_dependency 'spree_multi_domain'
   s.add_dependency 'skeleton-rails'
 

@@ -1,0 +1,26 @@
+<div id='slider' class='swipe'>
+  <% if @product.images.empty? %>
+      <div class='swipe-wrap'>
+        <div>
+          <%= product_image(@product, :itemprop => "image") %>
+        </div>
+      </div>
+  <% else %>
+      <div class='swipe-wrap'>
+        <% @product.images.each do |image| %>
+            <div>
+              <%= image_tag image.attachment.url(:product), :itemprop => "image" %>
+            </div>
+        <% end %>
+      </div>
+      <% if @product.images.size > 1 %>
+          <span class="nav prev">Prev</span>
+          <span class="nav next">Next</span>
+          <nav id="slider-nav">
+            <% @product.images.each_index do |index| %>
+                <i class="fa <%= index == 0 ? 'fa-square' : 'fa-square-o' %>" data-index="<%= index %>">&nbsp;</i>
+            <% end %>
+          </nav>
+      <% end %>
+  <% end %>
+</div>

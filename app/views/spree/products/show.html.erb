@@ -1,56 +1,43 @@
 <% cache [current_currency, @product] do %>
-
+<div id="product_show_body">
     <main data-hook="product_show" itemscope itemtype="http://schema.org/Product">
       <% @body_id = 'product-details' %>
 
-      <div class="columns nine alpha" data-hook="product_left_part">
-        <div class="row" data-hook="product_left_part_wrap">
+      <section id="product-images-and-form" class="row">
+         <div class="skeleton">
+             <div class="columns nine alpha" data-hook="product_left_part">
 
-          <div id="product-images" data-hook="product_images">
+                <div class="row" data-hook="product_left_part_wrap">
 
-            <div id='slider' class='swipe'>
-              <% if @product.images.empty? %>
-                  <div class='swipe-wrap'>
-                        <div>
-                          <%= product_image(@product, :itemprop => "image") %>
-                        </div>
+                  <div id="product-images" data-hook="product_images">
+                    <%= render partial: 'product_image_slider' %>
                   </div>
-              <% else %>
-              <div class='swipe-wrap'>
-                <% @product.images.each do |image| %>
-                <div>
-                  <%= image_tag image.attachment.url(:product), :itemprop => "image" %>
+
                 </div>
-                <% end %>
               </div>
-              <% end %>
+
+              <div class="columns six omega" data-hook="product_right_part">
+                <div class="row" data-hook="product_right_part_wrap">
+                    <div id="cart-form" class="column" data-hook="cart_form">
+                      <%= render :partial => 'cart_form' %>
+                    </div>
+                </div>
+              </div>
+         </div>
+       </section>
+
+      <div class="skeleton">
+          <section id="bottom-left" class="row">
+            <div id="product-description" data-hook="product_description" class="column two-thirds">
+                <%= render partial: 'product_information' %>
             </div>
-            <span class="nav prev">Prev</span>
-            <span class="nav next">Next</span>
-          </div>
 
-        </div>
-      </div>
-
-      <div class="columns seven omega" data-hook="product_right_part">
-        <div class="row" data-hook="product_right_part_wrap">
-            <div id="cart-form" data-hook="cart_form">
-              <%= render :partial => 'cart_form' %>
+            <div id="bottom-right" data-hook="bottom-right" class='column one-third'>
+                <%= render partial: 'social_media' %>
             </div>
-        </div>
-      </div>
 
-      <div id="product-description" data-hook="product_description" class="nine columns alpha">
-        <h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
-
-        <div itemprop="description" data-hook="description">
-          <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
-        </div>
-
-      </div>
-
-      <div id="social-media-links" data-hook="social-media-links">
-      </div>
-
+          </section>
+       </div>
     </main>
+</div>
 <% end %>

@@ -254,11 +254,12 @@ select {
     width: 220px; }
 input[type="checkbox"] {
     display: inline; }
-label span,
-legend span {
+
+
+/*label span, legend span {
     font-weight: normal;
     font-size: 13px;
-    color: #444; }
+    color: #444; } */
 
 /* #Misc
 ================================================== */

@@ -1,9 +1,21 @@
 @import 'spree/frontend/annarbortees_variables';
+@import 'font-awesome';
 
 /*--------------------------------------*/
 /* Basic styles
 /*--------------------------------------*/
+body {
+  background: #fff;
+  font: 16px/23px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+}
 
+
+h1.product-title {
+  text-transform: uppercase;
+}
 
 /*--------------------------------------*/
 /* Links
@@ -18,7 +30,78 @@
 /*--------------------------------------*/
 
 #header {
+
+}
+
+#logo {
+  min-height: 50px;
+}
+
+#header_container {
   background-color: $light_blue;
+  color: $dark_green;
+
+  i {
+    color: $dark_green;
+  }
+
+}
+
+#header_nav {
+  background-color: $dark_green;
+  text-transform: uppercase;
+
+}
+
+
+#breadcrumbs {
+  margin-bottom: 0;
+}
+
+#shopping-cart-image {
+  visibility: visible;
+  display: block;
+  font-size: 40px;
+  text-align: left;
+}
+
+#shopping-cart-text {
+  display: none;
+  visibility: hidden;
+}
+
+#shopping-cart-quantity {
+}
+
+#header {
+  text-align: center;
+}
+
+#logo {
+  text-align: left;
+}
+
+#search {
+
+  font-size: 3em;
+
+  input[type=search]{
+    -webkit-appearance: textfield;
+    width: 80%;
+    height: 3em;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: inherit;
+    margin: 0;
+    cursor: pointer;
+    font-size: 20px
+  }
+
+  label { display: inline; }
+  form { padding: 0; margin: 0;}
 }
 
 /*--------------------------------------*/
@@ -43,7 +126,8 @@
 /*--------------------------------------*/
 
 #breadcrumbs {
-  background-color: $medium_blue;
+  background-color: $dark_green;
+  color: $white;
 }
 
 /*--------------------------------------*/
@@ -55,9 +139,137 @@
 /* Main search bar
 /*--------------------------------------*/
 
+
+
+/*--------------------------------------*/
+/* Typography
+/*--------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  color: #181818;
+  font-weight: normal;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
+h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
+h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
+h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
+h5 { font-size: 17px; line-height: 24px; }
+h6 { font-size: 14px; line-height: 21px; }
+.subheader { color: #777; }
+
+p { margin: 0 0 20px 0; }
+p img { margin: 0; }
+p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+
+em { font-style: italic; }
+strong { font-weight: bold; color: #333; }
+small { font-size: 80%; }
+
+
+
+
 /*--------------------------------------*/
 /* Products
 /*--------------------------------------*/
+#product-images {
+  text-align: center;
+}
+
+#product-images-and-form {
+  background-image: asset_url("michigan-golf-course.png");
+  background-color: #39565c;
+  background-repeat:no-repeat;
+  background-position:center;
+  color: $white;
+  height: 400px
+}
+
+#cart-form {
+  margin: 0 auto;
+  background-color: rgba($medium_blue_rgb_r, $medium_blue_rgb_g, $medium_blue_rgb_b, 0.8);
+}
+
+#social-media-links {
+  background-color: $light_grey;
+}
+
+#product-variants label {
+  color: inherit;
+  display: inline;
+  width: 100%;
+}
+
+#product-variants ul {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#product-variants li {
+  float: left;
+  width: 44%;
+  min-height: 55px;
+  margin: 1% 1% 1% 2%;
+  text-align: center;
+  color: $white;
+  border: solid 3px $light_blue;
+  background-color: none;
+}
+
+#product-variants li.selected {
+  background-color: $light_blue;
+  border: solid 3px $light_blue;
+}
+
+
+#product-variants li.out-of-stock {
+  //background-color: rgba(0,0,0,0.5);
+  //border: solid 3px $deep_red;
+}
+
+#product-variants li input[type='radio'] {
+  display: none;
+  visibility: hidden;
+  /*hide the radio button*/
+  filter:alpha(opacity=0);
+  -moz-opacity:0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+
+span.out-of-stock {
+  display: block;
+  color: $deep_red;
+  margin: 2px auto;
+  padding: 2px;
+  background-color: $white;
+  width: 60%;
+}
+
+#social-media-links {
+
+  margin: inherit auto;
+  padding: 3%;
+
+  h3 {
+    text-align: center;
+    border-bottom: solid 1px $black;
+    margin: inherit 5%;
+  }
+
+  i {
+    display: block;
+    color: $light_blue;
+  }
+
+  li {
+    float: left;
+    width: 50%;
+    //margin: inherit 2% inherit 4%;
+    padding: 0;
+    text-align: center;
+  }
+}
+
 
 /*--------------------------------------*/
 /* Products
@@ -68,6 +280,12 @@
   overflow: hidden;
   visibility: hidden;
   position: relative;
+  color: $white;
+
+  img {
+    margin-top: 10px;
+    max-height: 350px;
+  }
 }
 .swipe-wrap {
   overflow: hidden;
@@ -97,3 +315,113 @@
 /*--------------------------------------*/
 /* Order
 /*--------------------------------------*/
+
+
+
+
+
+
+/* #Big Screen
+================================================== */
+
+/* Note: Design for a width of 1344px */
+
+@media only screen and (min-width: 1344px) {
+  #shopping-cart-image {
+    visibility: visible;
+    display: block;
+  }
+
+}
+
+
+/* #Tablet (Portrait)
+================================================== */
+
+/* Note: Design for a width of 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #shopping-cart-image {
+    visibility: visible;
+    display: block;
+  }
+}
+
+
+/*  #Mobile (Portrait)
+================================================== */
+
+/* Note: Design for a width of 320px */
+
+@media only screen and (max-width: 767px) {
+  #logo {
+    text-align: center;
+    img { width: 270px; }
+  }
+
+  #product-images-and-form {
+    background-image: none;
+    color: $white;
+    height: auto;
+  }
+
+  #product-variants li {
+    width: 97%;
+    min-height: 55px;
+    margin: 1%;
+  }
+
+
+  #shopping-cart-image {
+    display: none;
+    visibility: hidden;
+  }
+
+  #shopping-cart-text {
+    display: block;
+    visibility: visible;
+  }
+
+  .swipe {
+    color: $medium_blue;
+  }
+}
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+/* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  #logo {
+    text-align: center;
+    img { width: 380px; }
+  }
+
+  #product-images-and-form {
+    background-image: none;
+    color: $white;
+    height: auto;
+  }
+
+  #product-variants li {
+    width: 97%;
+    min-height: 55px;
+    margin: 1%;
+  }
+
+  #shopping-cart-image {
+    display: none;
+    visibility: hidden;
+  }
+
+  #shopping-cart-text {
+    display: block;
+    visibility: visible;
+  }
+
+  .swipe {
+    color: $medium_blue;
+  }
+}
