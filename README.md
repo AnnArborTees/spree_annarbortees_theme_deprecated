@@ -1,7 +1,7 @@
 SpreeAnnarborteesTheme
 ======================
 
-Introduction goes here.
+This was scrapped, switched to using bootstrap
 
 Installation
 ------------
